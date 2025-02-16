@@ -58,7 +58,13 @@ healthcheck pour attendre que `MYSQL` soit vraiment prêt).
 
 - **Environnement** : Déclaration des variables d'environnements afin de sécuriser les secrets.
 
-- **volumes** : Montage du volume `wp_data` sur le répertoire `/var/www/html` du conteneur.  
+- **volumes** : Montage du volume `wp_data` sur le répertoire `/var/www/html/wp-content` du conteneur.
+
+*Cinquième difficulté, persistance des données du site web tout en laissant la possibilité d'upgrade la version de  
+Wordpress. J'avais initialement monté le volume `/var/www/html` mais cela empêchait la montée en version de wordpress  
+car il y avait persistance des données de l'ancienne version de wordpress donc même si l'image se mettait à jour,  
+wordpress restait lui sur l'ancienne configuration. J'ai donc dû monter un volume plus précis contenant les contenus  
+spécifiques au site web à savoir `/var/www/html/wp-content`.* 
 
 - **Réseau** : Définition d'un réseau qui sera commun à tous nos service afin qu'ils puissent communiquer ensemble :  
 `wp-network`  
