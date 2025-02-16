@@ -2,7 +2,7 @@ services:
 
 # Conteneur de la bdd MYSQL
   db:
-    image: mysql:8.4.4 
+    image: mysql:9.2.0
     restart: always 
     container_name: mysql_db 
     environment:
@@ -32,7 +32,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
-      - wp_data:/var/www/html
+      - wp_data:/var/www/html/wp-content
     networks:
       - wp-network
 

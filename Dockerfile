@@ -1,6 +1,6 @@
 # Création de l'image docker personnalisée intégrant la CLI-WP
 
-FROM wordpress:6.7.2-apache
+FROM wordpress:6.7.2-php8.3
 
 # Installation des dépendances (wp-cli indisponible dans la liste des paquets debian)
 RUN apt-get update && apt-get install -y curl less \
